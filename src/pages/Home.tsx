@@ -6,7 +6,7 @@ interface HomeProps {
 }
 
 const Home = ({ onStartGame }: HomeProps) => {
-  const [imgElfo, setImgElfo] = useState('/elfo-principal.jpg');
+  const [imgElfo, setImgElfo] = useState('./elfo-principal.jpg');
   const [balaoTexto, setBalaoTexto] = useState('Saudações! Escolha o caminho que deseja dominar hoje.');
 
   // Função para mudar o humor do elfo ao passar o mouse nas trilhas
@@ -16,7 +16,7 @@ const Home = ({ onStartGame }: HomeProps) => {
   };
 
   const resetarHumor = () => {
-    setImgElfo('/elfo-principal.jpg');
+    setImgElfo('./elfo-principal.jpg');
     setBalaoTexto('Saudações! Escolha o caminho que deseja dominar hoje.');
   };
 
