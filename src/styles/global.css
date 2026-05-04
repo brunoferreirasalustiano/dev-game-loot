@@ -1,0 +1,51 @@
+/* src/styles/global.css */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+:root {
+  --gold: #ffd700;
+  --bg-dark: #121212;
+  --border-color: #ffd700;
+  --font-retro: 'Press Start 2P', cursive;
+}
+
+/* Reset básico para ocupar a tela toda */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  overflow: hidden; /* Evita barras de rolagem estranhas */
+}
+
+body {
+  display: flex;
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center;     /* Centraliza verticalmente */
+  font-family: var(--font-retro);
+  color: #fff;
+}
+
+/* O "Console" do Jogo */
+.game-container {
+  width: 95vw;
+  max-width: 600px; /* Largura ideal para parecer um GameBoy/Console */
+  min-height: 80vh;
+  background: var(--bg-dark);
+  border: 4px solid var(--border-color);
+  padding: 30px;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+
+/* Ajuste para o botão não ficar colado */
+button {
+  transition: all 0.1s;
+}
+
+button:active {
+  transform: scale(0.95);
+}
