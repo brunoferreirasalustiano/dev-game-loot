@@ -11,7 +11,7 @@ const Home = ({ onStartGame }: HomeProps) => {
 
   // Função para mudar o humor do elfo ao passar o mouse nas trilhas
   const mudarHumor = (trilha: string) => {
-    setImgElfo('/elfo-feliz.jpg');
+    setImgElfo('./elfo-feliz.jpg');
     setBalaoTexto(`Ótima escolha! Vamos dominar o ${trilha}?`);
   };
 
