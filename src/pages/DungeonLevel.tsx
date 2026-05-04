@@ -28,7 +28,7 @@ const MISSÕES_DATA: Record<'HTML' | 'CSS' | 'JS', Missao[]> = {
     { nível: 7, inimigo: "Serpente de Link", objetivo: "Link em nova aba.", comoFazer: "<a href='https://www.linkedin.com/in/bfs-bruno/' target='_blank'>LinkedIn</a>", teoria: "O 'href' é o portal. O atributo 'target=\"_blank\"' garante que esse portal abra em uma nova aba, sem fechar o jogo!", tagAbertura: "<a", tagFechamento: "</a>", hpMonstro: 160, dicaRodape: "🔗 NETWORKING: Sempre use target='_blank' para links externos. Assim você não perde o usuário que estava navegando no seu site." },
     { nível: 8, inimigo: "Aranha de Lista", objetivo: "Lista não ordenada.", comoFazer: "<ul>Lista</ul>", teoria: "O <ul> cria uma coleção de itens que não possuem uma ordem lógica (como um inventário).", tagAbertura: "<ul>", tagFechamento: "</ul>", hpMonstro: 170, dicaRodape: "📋 MENU: Quase todos os menus de sites famosos são construídos com <ul>." },
     { nível: 9, inimigo: "Verme de Item", objetivo: "Item de lista.", comoFazer: "<li>Poção</li>", teoria: "O <li> (List Item) é o soldado da lista. Ele só pode viver dentro de um <ul> ou <ol>.", tagAbertura: "<li>", tagFechamento: "</li>", hpMonstro: 180, dicaRodape: "🧱 REGRA: Colocar um <li> solto é erro grave de estrutura HTML." },
-    { nível: 10, inimigo: "Golem de Imagem", objetivo: "Invoque o Elfo.", comoFazer: "<img src='/elfo-principal.jpg'>", teoria: "Imagens não têm tag de fechamento. O 'src' indica o caminho exato do arquivo para o navegador.", tagAbertura: "<img", tagFechamento: ">", hpMonstro: 190, dicaRodape: "♿ ACESSIBILIDADE: Imagens sem atributo 'alt' são invisíveis para deficientes visuais." },
+    { nível: 10, inimigo: "Golem de Imagem", objetivo: "Invoque o Elfo.", comoFazer: "<img src='./elfo-principal.jpg'>", teoria: "Imagens não têm tag de fechamento. O 'src' indica o caminho exato do arquivo para o navegador.", tagAbertura: "<img", tagFechamento: ">", hpMonstro: 190, dicaRodape: "♿ ACESSIBILIDADE: Imagens sem atributo 'alt' são invisíveis para deficientes visuais." },
     { nível: 11, inimigo: "Besta de Span", objetivo: "Isolamento inline.", comoFazer: "<span>Status</span>", teoria: "O <span> é um container 'invisível' usado para aplicar estilos em palavras específicas dentro de um texto.", tagAbertura: "<span>", tagFechamento: "</span>", hpMonstro: 200, dicaRodape: "🖌️ CSS: Use para mudar a cor de apenas uma palavra no meio da frase." },
     { nível: 12, inimigo: "Mago da Divisão", objetivo: "Bloco container.", comoFazer: "<div>Caixa</div>", teoria: "A <div> é a caixa básica da internet. Ela agrupa elementos para formar o esqueleto do layout.", tagAbertura: "<div>", tagFechamento: "</div>", hpMonstro: 220, dicaRodape: "📦 ESTRUTURA: Evite a 'Divite' (usar div para tudo). Prefira tags com nome e significado." },
     { nível: 13, inimigo: "Cavaleiro Input", objetivo: "Campo de texto.", comoFazer: "<input type='text'>", teoria: "O <input> é o ouvido do site. O atributo 'type' define se ele vai ouvir texto, senha ou e-mail.", tagAbertura: "type='text'", tagFechamento: ">", hpMonstro: 250, dicaRodape: "📱 MOBILE: O tipo 'email' abre o teclado com o '@' automático no celular." },
@@ -288,7 +288,7 @@ const DungeonLevel = ({ trilha = 'HTML' }: { trilha: 'HTML' | 'CSS' | 'JS' }) =>
 
   const [playerCode, setPlayerCode] = useState('');
   const [derrotado, setDerrotado] = useState(false);
-  const [imgElfo, setImgElfo] = useState('/elfo-principal.jpg');
+  const [imgElfo, setImgElfo] = useState('./elfo-principal.jpg');
   const [fimDeTrilha, setFimDeTrilha] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
@@ -309,7 +309,7 @@ const DungeonLevel = ({ trilha = 'HTML' }: { trilha: 'HTML' | 'CSS' | 'JS' }) =>
       setFeedback(m.comoFazer);
       setPlayerCode('');
       setDerrotado(false);
-      setImgElfo('/elfo-principal.jpg');
+      setImgElfo('./elfo-principal.jpg');
     }
   }, [fase, trilha, fimDeTrilha]);
 
@@ -337,14 +337,14 @@ const DungeonLevel = ({ trilha = 'HTML' }: { trilha: 'HTML' | 'CSS' | 'JS' }) =>
 
     if (isValido) {
       setDerrotado(true);
-      setImgElfo('/elfo-feliz.jpg');
+      setImgElfo('./elfo-feliz.jpg');
       setFeedback(`✨ CONHECIMENTO: ${m.teoria}`);
     } else {
-      setImgElfo('/elfo-raiva.jpg');
+      setImgElfo('./elfo-raiva.jpg');
       setFeedback(`❌ ERRO: Verifique se usou a estrutura correta: ${m.comoFazer}`);
       timerRef.current = setTimeout(() => {
         setFeedback(m.comoFazer);
-        setImgElfo('/elfo-principal.jpg');
+        setImgElfo('./elfo-principal.jpg');
       }, 3000);
     }
   };
